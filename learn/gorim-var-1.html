@@ -232,7 +232,9 @@ function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=nu
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 function rnd(seed){let x=seed%2147483647;if(x<=0)x+=2147483646;return()=>(x=x*16807%2147483647)/2147483647;}
 function hash(s){let h=7;for(const c of s)h=(h*31+c.charCodeAt(0))%1000003;return h;}
-function shuffled(n,tag){const r=rnd(hash(META.id+tag)+n);const a=[...Array(n).keys()];for(let i=n-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+let CURID='';
+// (1011) 문항마다 다른 순서 — 전엔 세트 id 로만 섞어 같은 스텝 정답 위치가 문항마다 같았다(학생이 위치를 외워 통과)
+function shuffled(n,tag){const r=rnd(hash(META.id+'|'+CURID+'|'+tag)+n);const a=[...Array(n).keys()];for(let i=n-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function scrollEnd(n){setTimeout(()=>n.scrollIntoView({behavior:'smooth',block:'start'}),60);}
 
 /* 카드 하나: 질문 + 선지. onPick(원래 인덱스) */
@@ -252,7 +254,7 @@ function say(box,cls,h){const b=el('div','bub say '+cls,h);box.appendChild(b);re
 function nextBtn(box,txt,fn){const n=el('button','nx',txt);n.onclick=()=>{n.remove();fn();};box.appendChild(n);scrollEnd(n);}
 
 function runProblem(pi){
-  const P=PROBS[pi];const root=$('#thread');root.innerHTML='';
+  const P=PROBS[pi];CURID=P.id;const root=$('#thread');root.innerHTML='';
   const card=$('#prob');card.innerHTML='';card.className='prob';
   card.appendChild(el('div','ph',(pi+1)+' / '+PROBS.length+' · '+P.id+(P.단원?' · '+P.단원:'')));
   card.appendChild(el('div','stem',P.발문));
