@@ -1,5 +1,5 @@
 {
-"생성": "2026-10-14 18:12",
+"생성": "2026-10-15 12:34",
 "기준": "https://ukan8.github.io/mathis-lib/",
 "영상": [
 {
@@ -2073,7 +2073,8 @@
 "단원": "평면좌표와 직선의 방정식",
 "문항": 5,
 "원본판": "learn/gorim-orig-1.html",
-"변형판": "learn/gorim-var-1.html"
+"변형판": "learn/gorim-var-1.html",
+"기초판": "learn/gorim-basic-1.html"
 },
 {
 "학교": "고림",
@@ -2083,7 +2084,8 @@
 "단원": "원의 방정식",
 "문항": 5,
 "원본판": "learn/gorim-orig-2.html",
-"변형판": "learn/gorim-var-2.html"
+"변형판": "learn/gorim-var-2.html",
+"기초판": "learn/gorim-basic-2.html"
 },
 {
 "학교": "고림",
@@ -2093,7 +2095,8 @@
 "단원": "도형의 이동",
 "문항": 4,
 "원본판": "learn/gorim-orig-3.html",
-"변형판": "learn/gorim-var-3.html"
+"변형판": "learn/gorim-var-3.html",
+"기초판": "learn/gorim-basic-3.html"
 },
 {
 "학교": "고림",
@@ -2103,7 +2106,8 @@
 "단원": "집합",
 "문항": 6,
 "원본판": "learn/gorim-orig-4.html",
-"변형판": "learn/gorim-var-4.html"
+"변형판": "learn/gorim-var-4.html",
+"기초판": "learn/gorim-basic-4.html"
 },
 {
 "학교": "진덕",
