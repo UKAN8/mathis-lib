@@ -514,4 +514,13 @@ PROBS.forEach((P,i)=>{const L=S.log[i];if(!S.res[P.id]&&L&&L.스텝&&S.att[P.id]
 const START=Math.min(S.pi||0,PROBS.length-1);
 runProblem(START);
 if(START>0)UI.toast((START+1)+'번 문제부터 이어서');
+</script><script>
+/* (1115 수식 규칙 §2) 키 큰 인라인 수식(분수·적분 끝·큰 괄호)은 그 줄만 벌린다 + 한 덩어리 수식이 칸보다 넓으면 그 식만 줄인다(최대 72%) */
+(()=>{function fit(root){root.querySelectorAll('.katex:not([data-t])').forEach(k=>{k.dataset.t=1;if(k.closest('.katex-display'))return;let H=0,D=0;
+ k.querySelectorAll('.katex-html>.base>.strut').forEach(s=>{const h=parseFloat(s.style.height)||0,d=-(parseFloat(s.style.verticalAlign)||0);H=Math.max(H,h-d);D=Math.max(D,d)});
+ const pt=Math.max(0,H-0.95),pb=Math.max(0,D-0.32);
+ if(pt>0||pb>0){k.classList.add('tall');k.style.display='inline-block';k.style.paddingTop=(pt>0?pt*0.5+0.12:0).toFixed(2)+'em';k.style.paddingBottom=(pb>0?pb*0.5+0.12:0).toFixed(2)+'em'}});
+ requestAnimationFrame(()=>root.querySelectorAll('.katex:not([data-s])').forEach(k=>{if(k.closest('.katex-display'))return;const b=k.parentElement&&k.parentElement.closest('div,p,li,label,button');if(!b||!b.clientWidth||!k.offsetParent)return;k.dataset.s=1;
+  const W=b.clientWidth,w=k.getBoundingClientRect().width;if(w>W+1){const r=Math.max(0.72,W/w*0.98);k.style.fontSize=(1.02*r).toFixed(3)+'em'}}))}
+ fit(document.body);new MutationObserver(()=>fit(document.body)).observe(document.body,{childList:true,subtree:true});})();
 </script></body></html>
